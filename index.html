@@ -67,7 +67,7 @@
 </head>
 <body>
     <h1>Chess Club Rankings</h1>
-    <h4>Latest Updated: 15:04  (14-10-2023)</h4>
+    <h4>Latest Updated: 15:36  (14-10-2023)</h4>
     <table>
         <thead>
             <tr>
@@ -102,18 +102,18 @@
 
          // 14-10-2023
         var oct_14_2023 = [
+            {"name": "Kayden", "total": 4.5},
+            {"name": "Marvin", "total": 4},
             {"name": "Tigger", "total": 3.5},
             {"name": "Roy", "total": 3},
-            {"name": "Marvin", "total": 3},
-            {"name": "Kayden", "total": 3.5},
+            {"name": "Dandy", "total": 3},
             {"name": "Alwin", "total": 2.5},
-            {"name": "Jayce", "total": 2},
-            {"name": "Dandy", "total": 2},
-            {"name": "Athira", "total": 1.5},
-            {"name": "Eric", "total": 1},
+            {"name": "Athira", "total": 2.5},
+            {"name": "Jayce", "total": 2.5},
+            {"name": "Eric", "total": 2},
             {"name": "Aek", "total": 1},
             {"name": "Tonka", "total": 1},
-            {"name": "Felix", "total": 0},
+            {"name": "Felix", "total": 0.5},
             ]
         
         var pointArr = [oct_14_2023]
@@ -123,6 +123,7 @@
 
         for (var i = 0; i < playersData.length; i++) {
             var row = tableBody.insertRow();
+            //var cell0 = row.insertCell(0);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             cell1.innerHTML = playersData[i].name;
@@ -136,6 +137,9 @@
                 
             })
             playersData.sort((a,b) => b.total - a.total )
+
+            // add order number
+
             cell2.innerHTML = playersData[i].total;
         }
     </script>
