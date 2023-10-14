@@ -88,11 +88,30 @@
             {"name": "Eric", "total": 5 + 4},
             {"name": "Naphat", "total": 4},
             {"name": "Alieng", "total": 1},
+            {"name": "Jayce", "total": 0},
+            {"name": "Felix", "total": 0},
             {"name": "Ayyan", "total": 0.5}
         ];
 
+
          // 14-10-2023
+        var oct_14_2023 = [
+            {"name": "Roy", "total": 3},
+            {"name": "Tigger", "total": 2.5},
+            {"name": "Kayden", "total": 2.5},
+            {"name": "Marvin", "total": 2},
+            {"name": "Jayce", "total": 2},
+            {"name": "Athira", "total": 1.5},
+            {"name": "Alwin", "total": 1.5},
+            {"name": "Dandy", "total": 1},
+            {"name": "Eric", "total": 1},
+            {"name": "Aek", "total": 1},
+            {"name": "Felix", "total": 0},
+            {"name": "Tonka", "total": 0},
+            ]
         
+        var pointArr = [oct_14_2023]
+
 
         var tableBody = document.getElementById('playersTable');
 
@@ -101,6 +120,16 @@
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             cell1.innerHTML = playersData[i].name;
+
+            pointArr.forEach((arr) => {
+                arr.forEach((e) => {
+                    if(playersData[i].name === e.name) {
+                        playersData[i].total += e.total
+                    }
+                })
+                
+            })
+            playersData.sort((a,b) => b.total - a.total )
             cell2.innerHTML = playersData[i].total;
         }
     </script>
