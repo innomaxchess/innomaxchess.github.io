@@ -94,7 +94,7 @@
             {"name": "Eric", "total": 5 + 4},
             {"name": "Naphat", "total": 4},
             {"name": "Alieng", "total": 1},
-            {"name": "Jayce", "total": 0},
+            {"name": "Jayce", "total": 0.0},
             {"name": "Felix", "total": 0},
             {"name": "Ayyan", "total": 0.5}
         ];
@@ -111,37 +111,63 @@
             {"name": "Athira", "total": 3.5},
             {"name": "Eric", "total": 3},
             {"name": "Jayce", "total": 2.5},
-            {"name": "Aek", "total": 1},
+            {"name": "Aek", "total": 1}, 
             {"name": "Tonka", "total": 2.5},
             {"name": "Felix", "total": 0.5},
             ]
+
+       var knight_and_bishop = [
+           {"name": "Kayden", "total": 4},
+           {"name": "Marvin", "total": 4},
+       ]
+
+
+         // 21-10-2023
+        var oct_21_2023 = [
+            {"name": "Kayden", "total": 4},
+            {"name": "Tigger", "total": 3.5},
+            {"name": "Marvin", "total": 3.5},
+            {"name": "Alwin", "total": 3},
+            {"name": "Athira", "total": 3},
+            {"name": "Dandy", "total": 2.5},
+            {"name": "Tonka", "total": 2.5},
+            {"name": "Jayce", "total": 2},
+            {"name": "Aek", "total": 1}, 
+            {"name": "Felix", "total": 0},
+            ]
         
-        var pointArr = [oct_14_2023]
+        var pointArr = [
+            oct_14_2023,
+            oct_21_2023,
+            knight_and_bishop
+        ]
 
 
         var tableBody = document.getElementById('playersTable');
 
-        for (var i = 0; i < playersData.length; i++) {
+            pointArr.forEach((arr) => {
+                console.log(arr)
+                arr.forEach((e) => {
+                    const player = playersData.find((p) => p.name === e.name)
+                   player.total += e.total
+                })
+                
+            })
+            playersData.sort((a,b) => b.total - a.total )
+
+      setTimeout(() => {
+          for (var i = 0; i < playersData.length; i++) {
             var row = tableBody.insertRow();
             //var cell0 = row.insertCell(0);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             cell1.innerHTML = playersData[i].name;
 
-            pointArr.forEach((arr) => {
-                arr.forEach((e) => {
-                    if(playersData[i].name === e.name) {
-                        playersData[i].total += e.total
-                    }
-                })
-                
-            })
-            playersData.sort((a,b) => b.total - a.total )
-
             // add order number
 
             cell2.innerHTML = playersData[i].total;
         }
+      },300)
     </script>
 </body>
 </html>
