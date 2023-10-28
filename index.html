@@ -67,7 +67,7 @@
 </head>
 <body>
     <h1>Chess Club Rankings</h1>
-    <h4>Latest Updated: (21-10-2023)</h4>
+    <h4>Latest Updated: (28-10-2023)</h4>
     <table>
         <thead>
             <tr>
@@ -139,15 +139,15 @@
 
 
         var oct_28_2023 = [
+            {"name": "Kayden", "total": 3},
             {"name": "Roy", "total": 2},
-            {"name": "Kayden", "total": 2},
+            {"name": "Jayce", "total": 2},
+            {"name": "Marvin", "total": 2 + 5},
+            {"name": "Alwin", "total": 1.5},
+            {"name": "Tigger", "total": 1.5},
+            {"name": "Aek", "total": 1}, 
             {"name": "Tonka", "total": 1},
-            {"name": "Alwin", "total": 1},
             {"name": "Dandy", "total": 1},
-            {"name": "Marvin", "total": 1 + 5},
-            {"name": "Tigger", "total": 1},
-            {"name": "Jayce", "total": 1},
-            {"name": "Aek", "total": 0}, 
             {"name": "Eric", "total": 0},
          ]
         
@@ -165,7 +165,12 @@
                 console.log(arr)
                 arr.forEach((e) => {
                     const player = playersData.find((p) => p.name === e.name)
-                   player.total += e.total
+                    // if player not exist then add 
+                    if(!player) {
+                        playersData.push(e)
+                    } else {
+                       player.total += e.total
+                    }
                 })
                 
             })
