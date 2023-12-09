@@ -4,7 +4,7 @@ import json
 from datetime import date
 
 #
-url = 'https://swissonlinetournament.com/Tournament/Rating/d6a0b23b18f346948836e3abe55804e6'
+url = 'https://swissonlinetournament.com/Tournament/Rating/9a8df1084f4042888fb3654227faa2d1'
 
 response = requests.get(url)
 
